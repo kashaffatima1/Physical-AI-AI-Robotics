@@ -1,0 +1,183 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="object_detection_world">
+    <!-- Include the sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Include ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Physical AI Robot -->
+    <include>
+      <name>physical_ai_robot</name>
+      <pose>0 0 0.1 0 0 0</pose>
+      <uri>model://physical_ai_robot</uri>
+    </include>
+
+    <!-- Add some objects for detection -->
+    <!-- Red cube -->
+    <model name="red_cube">
+      <pose>-1 1 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.003333</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.003333</iyy>
+            <iyz>0</iyz>
+            <izz>0.003333</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Green cylinder -->
+    <model name="green_cylinder">
+      <pose>1 -1 0.3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.15</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.15</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.01625</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.01625</iyy>
+            <iyz>0</iyz>
+            <izz>0.01125</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Blue sphere -->
+    <model name="blue_sphere">
+      <pose>0 2 0.3 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.016</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.016</iyy>
+            <iyz>0</iyz>
+            <izz>0.016</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Yellow box -->
+    <model name="yellow_box">
+      <pose>2 0 0.2 0 0 0.5</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.025</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.025</iyy>
+            <iyz>0</iyz>
+            <izz>0.01875</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Lighting -->
+    <light name="key_light" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.3 -0.3 -0.9</direction>
+    </light>
+  </world>
+</sdf>

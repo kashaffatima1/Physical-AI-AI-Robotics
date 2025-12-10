@@ -1,0 +1,198 @@
+{
+  "module": "Module 2: Perception Systems",
+  "topic": "Physical AI Perception Concepts",
+  "generated_at": "2025-12-10T04:51:00Z",
+  "questions": [
+    {
+      "id": "perception_001",
+      "question": "What is the primary purpose of sensor fusion in Physical AI systems?",
+      "options": [
+        "A) To reduce the computational load on individual sensors",
+        "B) To combine data from multiple sensors for better environmental understanding",
+        "C) To replace expensive sensors with cheaper alternatives",
+        "D) To increase the data transmission speed between sensors"
+      ],
+      "correct_answer": "B",
+      "explanation": "Sensor fusion combines data from multiple sensors to achieve better understanding of the environment than would be possible with any single sensor alone. This is essential in Physical AI for robust and accurate perception.",
+      "difficulty": "beginner",
+      "category": "sensor_fusion"
+    },
+    {
+      "id": "perception_002",
+      "question": "Which of the following is NOT a common sensor modality used in Physical AI perception systems?",
+      "options": [
+        "A) RGB Cameras",
+        "B) LIDAR",
+        "C) Olfactory Sensors",
+        "D) Inertial Measurement Units (IMU)"
+      ],
+      "correct_answer": "C",
+      "explanation": "While RGB cameras, LIDAR, and IMUs are common in Physical AI perception systems, olfactory sensors are not typically used in standard perception pipelines. The primary modalities are vision, range sensing, and inertial sensing.",
+      "difficulty": "beginner",
+      "category": "sensors"
+    },
+    {
+      "id": "perception_003",
+      "question": "In the context of computer vision for Physical AI, what does SLAM stand for?",
+      "options": [
+        "A) Simultaneous Localization and Mapping",
+        "B) Stereo Learning and Matching",
+        "C) Sensor Localization and Mapping",
+        "D) Spatial Learning and Motion"
+      ],
+      "correct_answer": "A",
+      "explanation": "SLAM stands for Simultaneous Localization and Mapping, which enables robots to build a map of their environment while simultaneously determining their location within that map. This is crucial for autonomous navigation in Physical AI systems.",
+      "difficulty": "beginner",
+      "category": "computer_vision"
+    },
+    {
+      "id": "perception_004",
+      "question": "What is the main advantage of using a particle filter over a Kalman filter for sensor fusion in Physical AI?",
+      "options": [
+        "A) Lower computational complexity",
+        "B) Ability to handle non-Gaussian, nonlinear systems",
+        "C) Faster convergence rate",
+        "D) Better performance with linear systems"
+      ],
+      "correct_answer": "B",
+      "explanation": "Particle filters can represent arbitrary probability distributions and are particularly useful for non-Gaussian, nonlinear systems where Kalman filters may not perform well. This makes them suitable for complex Physical AI environments.",
+      "difficulty": "intermediate",
+      "category": "sensor_fusion"
+    },
+    {
+      "id": "perception_005",
+      "question": "Which type of camera is most suitable for depth perception in Physical AI systems?",
+      "options": [
+        "A) Standard RGB camera",
+        "B) Thermal camera",
+        "C) Stereo camera or RGB-D camera",
+        "D) Event-based camera"
+      ],
+      "correct_answer": "C",
+      "explanation": "Stereo cameras or RGB-D cameras provide depth information in addition to color information, which is essential for 3D perception in Physical AI systems. Standard RGB cameras only provide color information without depth.",
+      "difficulty": "beginner",
+      "category": "computer_vision"
+    },
+    {
+      "id": "perception_006",
+      "question": "What is the primary challenge with real-time computer vision in Physical AI systems?",
+      "options": [
+        "A) Lack of available camera hardware",
+        "B) Balancing accuracy with computational speed requirements",
+        "C) Too much available visual information",
+        "D) Inability to process color images"
+      ],
+      "correct_answer": "B",
+      "explanation": "Physical AI systems face strict real-time constraints and must balance accuracy with speed requirements. The system must process visual information quickly enough to support responsive behavior while maintaining sufficient accuracy for safe operation.",
+      "difficulty": "intermediate",
+      "category": "computer_vision"
+    },
+    {
+      "id": "perception_007",
+      "question": "In object tracking for Physical AI, what is the 'data association' problem?",
+      "options": [
+        "A) Storing sensor data efficiently",
+        "B) Determining which measurements correspond to which objects",
+        "C) Connecting sensors to the main computer",
+        "D) Calibrating multiple sensors together"
+      ],
+      "correct_answer": "B",
+      "explanation": "Data association is the problem of determining which measurements correspond to which objects, especially when multiple objects are present. This is a critical challenge in multi-object tracking systems.",
+      "difficulty": "intermediate",
+      "category": "object_tracking"
+    },
+    {
+      "id": "perception_008",
+      "question": "What is the main purpose of visual servoing in Physical AI systems?",
+      "options": [
+        "A) Storing visual data for later processing",
+        "B) Using visual feedback to control robot motion",
+        "C) Calibrating camera systems",
+        "D) Compressing visual data for transmission"
+      ],
+      "correct_answer": "B",
+      "explanation": "Visual servoing uses visual feedback to control robot motion. It allows robots to adjust their actions based on visual information, enabling tasks like precise manipulation or navigation based on visual targets.",
+      "difficulty": "intermediate",
+      "category": "computer_vision"
+    },
+    {
+      "id": "perception_009",
+      "question": "Which sensor fusion architecture is most appropriate for a Physical AI system that needs to continue operating even if one sensor fails?",
+      "options": [
+        "A) Centralized fusion",
+        "B) Distributed fusion",
+        "C) Hierarchical fusion",
+        "D) Sequential fusion"
+      ],
+      "correct_answer": "B",
+      "explanation": "Distributed fusion processes data locally at each sensor node, making the system more fault-tolerant. If one sensor fails, other sensors can continue to operate independently, maintaining some level of functionality.",
+      "difficulty": "intermediate",
+      "category": "sensor_fusion"
+    },
+    {
+      "id": "perception_010",
+      "question": "What is the main advantage of using event-based cameras in Physical AI systems?",
+      "options": [
+        "A) Higher resolution images",
+        "B) Lower power consumption",
+        "C) Ultra-fast response to motion changes",
+        "D) Better color reproduction"
+      ],
+      "correct_answer": "C",
+      "explanation": "Event-based cameras respond to changes in brightness at individual pixels with very low latency, making them ideal for detecting fast motion changes. This is particularly useful in dynamic Physical AI environments where rapid responses are needed.",
+      "difficulty": "advanced",
+      "category": "computer_vision"
+    },
+    {
+      "id": "perception_011",
+      "question": "In the context of Physical AI, what does 'embodied perception' mean?",
+      "options": [
+        "A) Using the robot's physical form as part of the perception process",
+        "B) Installing sensors inside the robot's body",
+        "C) Using only tactile sensors for perception",
+        "D) Perceiving through the robot's end effectors only"
+      ],
+      "correct_answer": "A",
+      "explanation": "Embodied perception refers to how the robot's physical form and movements contribute to its perception. The robot's body is not just a vessel but an integral part of the perception process, where physical interaction with the environment enhances understanding.",
+      "difficulty": "intermediate",
+      "category": "embodied_cognition"
+    },
+    {
+      "id": "perception_012",
+      "question": "Which approach is most suitable for detecting and tracking multiple objects in a Physical AI system?",
+      "options": [
+        "A) Single static camera with high resolution",
+        "B) Multiple sensors with centralized fusion",
+        "C) Deep learning-based detection with tracking-by-detection",
+        "D) Simple threshold-based detection"
+      ],
+      "correct_answer": "C",
+      "explanation": "Deep learning-based detection combined with tracking algorithms (like tracking-by-detection) is currently the most effective approach for multiple object detection and tracking. This approach can handle complex scenes with multiple overlapping objects.",
+      "difficulty": "intermediate",
+      "category": "object_detection"
+    }
+  ],
+  "metadata": {
+    "total_questions": 12,
+    "difficulty_distribution": {
+      "beginner": 4,
+      "intermediate": 7,
+      "advanced": 1
+    },
+    "categories": [
+      "sensor_fusion",
+      "computer_vision",
+      "sensors",
+      "object_tracking",
+      "object_detection",
+      "embodied_cognition"
+    ],
+    "learning_objectives_covered": [
+      "Understanding sensor fusion principles",
+      "Computer vision concepts in Physical AI",
+      "Sensor selection and integration",
+      "Object detection and tracking methods",
+      "Real-time perception challenges"
+    ]
+  }
+}

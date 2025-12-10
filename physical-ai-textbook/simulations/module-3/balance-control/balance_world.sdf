@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="balance_control_world">
+    <!-- Include the sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Include ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Add some obstacles for balance challenge -->
+    <!-- Small platform to test balance -->
+    <model name="balance_platform">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="platform_link">
+        <pose>0 0 0.01 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>2 2 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>2 2 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <inertial>
+          <mass>100.0</mass>
+          <inertia>
+            <ixx>33.36</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>33.36</iyy>
+            <iyz>0</iyz>
+            <izz>66.68</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Add a slight incline to challenge balance -->
+    <model name="incline_ramp">
+      <pose>2 0 0 0 0.1 0</pose> <!-- 0.1 rad ≈ 5.7 deg incline -->
+      <link name="ramp_link">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.6 0.4 0.2 1</ambient>
+            <diffuse>0.8 0.6 0.4 1</diffuse>
+          </material>
+        </visual>
+        <inertial>
+          <mass>50.0</mass>
+          <inertia>
+            <ixx>4.33</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>4.33</iyy>
+            <iyz>0</iyz>
+            <izz>8.33</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Add a small step to challenge balance recovery -->
+    <model name="step_obstacle">
+      <pose>-1.5 0.5 0 0 0 0</pose>
+      <link name="step_link">
+        <pose>0 0 0.05 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+          </material>
+        </visual>
+        <inertial>
+          <mass>10.0</mass>
+          <inertia>
+            <ixx>0.158</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.158</iyy>
+            <iyz>0</iyz>
+            <izz>0.158</izz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+    <!-- Add some lighting -->
+    <light name="ambient_light" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.3 -0.3 -0.9</direction>
+    </light>
+
+    <!-- Physics parameters -->
+    <physics name="1ms" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+  </world>
+</sdf>
