@@ -1,0 +1,140 @@
+name: Integrated RAG Chatbot Development
+about: Build and embed a Retrieval-Augmented Generation chatbot in the published Docusaurus book
+version: 1.0.0
+
+tasks:
+  - id: 1
+    title: Initial Setup
+    description: Create backend folder and initialize Python virtual environment
+    steps:
+      - Create backend directory structure
+      - Initialize Python virtual environment
+      - Install required dependencies (FastAPI, OpenAI SDK, Neon Postgres driver, Qdrant client)
+    tools:
+      - Python 3.9+
+      - pip/virtualenv
+      - git
+    dependencies:
+      - Python installed
+    output: Initialized backend project with virtual environment
+
+  - id: 2
+    title: Database Setup
+    description: Set up Neon Serverless Postgres for chat history and metadata
+    steps:
+      - Create Neon Postgres database instance
+      - Define schema for chat history and user sessions
+      - Set up connection pooling and security
+    tools:
+      - Neon CLI
+      - PostgreSQL
+    dependencies:
+      - Neon account
+    output: Configured Postgres database with connection details
+
+  - id: 3
+    title: Qdrant Vector Storage Setup
+    description: Configure Qdrant Cloud Free Tier for document embeddings
+    steps:
+      - Create Qdrant Cloud account
+      - Set up collection for book content embeddings
+      - Configure API keys and access
+    tools:
+      - Qdrant Cloud
+      - qdrant-client
+    dependencies:
+      - Qdrant Cloud account
+    output: Configured Qdrant collection for embeddings
+
+  - id: 4
+    title: Document Ingestion Pipeline
+    description: Build pipeline to crawl and embed Docusaurus book content
+    steps:
+      - Implement web crawler for Docusaurus book
+      - Extract and clean text content
+      - Generate embeddings using Cohere/OpenAI
+      - Store embeddings in Qdrant
+    tools:
+      - BeautifulSoup/Playwright
+      - OpenAI/Cohere API
+      - qdrant-client
+    dependencies:
+      - Book URL accessible: https://physical-ai-ai-robotics.vercel.app/
+    output: Indexed book content in Qdrant
+
+  - id: 5
+    title: RAG Backend API
+    description: Create FastAPI endpoints for RAG functionality
+    steps:
+      - Implement semantic search endpoint
+      - Create chat completion endpoint
+      - Add selected-text Q&A functionality
+      - Implement session management
+    tools:
+      - FastAPI
+      - uvicorn
+      - OpenAI SDK
+    dependencies:
+      - Database and vector store configured
+    output: Functional RAG API endpoints
+
+  - id: 6
+    title: Chat Interface Integration
+    description: Embed chatbot interface in Docusaurus book
+    steps:
+      - Create React/Vue chat component
+      - Implement real-time messaging
+      - Add selected-text context feature
+      - Style to match book theme
+    tools:
+      - React/Vue.js
+      - WebSocket/SSE
+      - Docusaurus plugin system
+    dependencies:
+      - Docusaurus book setup
+    output: Embedded chatbot UI in book
+
+  - id: 7
+    title: OpenAI Agent Integration
+    description: Integrate OpenAI Agents/ChatKit for conversation handling
+    steps:
+      - Set up OpenAI Agent framework
+      - Configure tools for RAG retrieval
+      - Implement memory and context management
+      - Add response formatting
+    tools:
+      - OpenAI Python SDK
+      - LangChain/LlamaIndex
+    dependencies:
+      - OpenAI API key
+    output: Functional conversational agent
+
+  - id: 8
+    title: Testing and Validation
+    description: Test complete RAG chatbot functionality
+    steps:
+      - Test document retrieval accuracy
+      - Validate chat response quality
+      - Test selected-text Q&A feature
+      - Performance testing
+    tools:
+      - pytest
+      - Postman/Jest
+    dependencies:
+      - All components implemented
+    output: Tested and validated RAG system
+
+  - id: 9
+    title: Deployment Preparation
+    description: Prepare for production deployment
+    steps:
+      - Containerize backend services
+      - Optimize for performance
+      - Set up monitoring and logging
+      - Create deployment configurations
+    tools:
+      - Docker
+      - Kubernetes/Docker Compose
+    dependencies:
+      - All features implemented
+    output: Deployable RAG chatbot system

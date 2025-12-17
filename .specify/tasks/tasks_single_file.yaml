@@ -1,0 +1,126 @@
+name: RAG Embeddings Implementation in Single Python File
+about: Create main.py with Cohere/Qdrant integration for RAG embeddings from deployed URL
+version: 1.0.0
+
+tasks:
+  - id: 1
+    title: Setup Project Structure
+    description: Create main.py with required dependencies and imports
+    steps:
+      - Create main.py file
+      - Install cohere, qdrant-client, requests, beautifulsoup4
+      - Import all required libraries
+    tools:
+      - Python 3.9+
+      - pip
+    dependencies:
+      - Internet access
+    output: main.py with all imports and dependency installation
+
+  - id: 2
+    title: Configure API Clients
+    description: Set up Cohere and Qdrant clients with proper configuration
+    steps:
+      - Initialize Cohere client with API key
+      - Initialize Qdrant client with cloud connection
+      - Test client connections
+    tools:
+      - Cohere API key
+      - Qdrant Cloud credentials
+    dependencies:
+      - API keys available
+    output: Configured Cohere and Qdrant clients
+
+  - id: 3
+    title: Implement URL Collection Function
+    description: Create get_all_urls() to fetch all documentation URLs
+    steps:
+      - Scrape sitemap.xml if available
+      - Follow internal links from base URL
+      - Filter valid documentation pages
+    tools:
+      - requests
+      - beautifulsoup4
+    dependencies:
+      - Base URL accessible
+    output: get_all_urls() function returning list of URLs
+
+  - id: 4
+    title: Implement Text Extraction Function
+    description: Create extract_text_url(url) to extract and clean text
+    steps:
+      - Fetch HTML content from URL
+      - Parse and extract main content
+      - Clean text (remove HTML tags, special characters)
+    tools:
+      - requests
+      - beautifulsoup4
+    dependencies:
+      - Valid URL input
+    output: extract_text_url() function returning cleaned text
+
+  - id: 5
+    title: Implement Text Chunking Function
+    description: Create collection() to chunk text into appropriate sizes
+    steps:
+      - Split text into chunks of specified size
+      - Add overlap between chunks
+      - Preserve document context
+    tools:
+      - Custom logic
+    dependencies:
+      - Raw text input
+    output: collection() function returning text chunks
+
+  - id: 6
+    title: Implement Embedding Generation
+    description: Create rag_embedding() to generate embeddings using Cohere
+    steps:
+      - Call Cohere Embed v2 API
+      - Handle batch processing
+      - Return embedding vectors
+    tools:
+      - Cohere client
+    dependencies:
+      - Cohere API access
+    output: rag_embedding() function returning embeddings
+
+  - id: 7
+    title: Implement Qdrant Storage
+    description: Create save_to_qdrant() to store embeddings with metadata
+    steps:
+      - Format data points with metadata
+      - Upsert embeddings to Qdrant collection
+      - Include chapter, section, URL in metadata
+    tools:
+      - Qdrant client
+    dependencies:
+      - Qdrant collection ready
+    output: save_to_qdrant() function storing embeddings
+
+  - id: 8
+    title: Create Main Execution Function
+    description: Implement execute() as main function orchestrating the pipeline
+    steps:
+      - Call all functions in sequence
+      - Handle errors and logging
+      - Process all URLs and store embeddings
+    tools:
+      - All implemented functions
+    dependencies:
+      - All other functions implemented
+    output: execute() function running complete pipeline
+
+  - id: 9
+    title: Test and Validate
+    description: Run main.py and validate embedding pipeline
+    steps:
+      - Execute main function
+      - Verify embeddings stored in Qdrant
+      - Check metadata integrity
+    tools:
+      - Python interpreter
+      - Qdrant dashboard
+    dependencies:
+      - All functions implemented
+    output: Validated RAG embedding pipeline

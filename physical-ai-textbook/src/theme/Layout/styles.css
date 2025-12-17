@@ -1,0 +1,19 @@
+.document-components {
+  position: fixed;
+  bottom: 80px; /* Position above the chatbot */
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  max-width: 200px;
+}
+
+/* Ensure components don't overlap with chatbot */
+.document-components .personalize-button,
+.document-components .translate-button {
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
